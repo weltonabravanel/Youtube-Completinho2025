@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  youtube-clone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - SITE_BASE_URL=${SITE_BASE_URL}
+        - YOUTUBE_API_KEY=${YOUTUBE_API_KEY}
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    image: youtube-clone
